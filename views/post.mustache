@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create a New Post</title>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+  <nav class="nav-bar">
+            <div class="nav-div">
+                <p class="menuItem"><a href="/posts">Create a New Post</a></p>
+                <p class="menuItem"><a href="/myposts">View My Posts</a></p>
+            </div>
+            <div class="nav-div">
+            <a class="page-header" href="/">Gabble</a>
+            </div>
+            <div class="nav-div">
+            <p class="menuItem">Logged in as <span class="logged-in">{{user.username}}</span></p>
+            <p class="menuItem"><a href="/logout">Log Out</a></p>
+        </div>
+   
+    </nav>
+    <div class="wrapper">
+        <div class="new-post form">
+        <h1>Create a New Post</h1>
+        <br>
+        <form action="/posts" method="post">
+            <textarea class="new-post-text" name="newmessage"  maxlength="140"></textarea>
+            <br>
+            <button type="submit" name="savemessage" value="Save Message">Save</button>
+        </form>
+        </div>
+    </div>
+</body>
+
+</html>

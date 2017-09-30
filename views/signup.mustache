@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gabble Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div>
+    <div class ="form">
+        <h1>Gabble Sign Up</h1>
+        <form action="/signup" method="post"><br>
+            <input type="text" name="firstname" value="{{data.firstname}}" placeholder="First Name" required autocomplete=off autofocus><br><br>
+            <input type="text" name="lastname" value="{{data.lastname}}" placeholder="Last Name" autocomplete=off required><br><br>
+            <input type="text" name="email" value="{{data.email}}" placeholder="Email" autocomplete=off required><br><br>
+            <input type="text" name="username" value="{{data.username}}" placeholder="Username" autocomplete=off required><br><br>
+            <input type="password" name="password" value="{{data.password}}" placeholder="Password" autocomplete=off required><br>
+            <button type="submit" name="signup" value="Sign up">Submit</button>
+        </form> <br>
+        <a href="/login">Already have an account? Log in</a>
+        
+        {{#errors}}
+        <div class="error">
+            {{msg}} <br>
+        </div>
+        {{/errors}}
+        </div>
+    </div>
+</body>
+
+</html>
