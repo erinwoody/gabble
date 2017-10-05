@@ -1,6 +1,6 @@
 const express = require("express");
 const signupRouter = express.Router();
-const models = require("../models");
+const models = require("../models/index");
 
 signupRouter.get("/", function(req, res) {
   res.render("signup");
@@ -16,6 +16,7 @@ signupRouter.post("/", function(req, res) {
   if (errors) {
     return res.render("signup", { errors: errors, data: req.body });
   } else {
+    console.log(" models.user: ", models);
     var newUser = models.user.build(req.body);
     newUser
       .save()

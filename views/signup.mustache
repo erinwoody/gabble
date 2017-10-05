@@ -6,30 +6,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div>
-    <div class ="form">
+    <div class="signup-page">
         <h1>Gabble Sign Up</h1>
-        <form action="/signup" method="post"><br>
-            <input type="text" name="firstname" value="{{data.firstname}}" placeholder="First Name" required autocomplete=off autofocus><br><br>
-            <input type="text" name="lastname" value="{{data.lastname}}" placeholder="Last Name" autocomplete=off required><br><br>
-            <input type="text" name="email" value="{{data.email}}" placeholder="Email" autocomplete=off required><br><br>
-            <input type="text" name="username" value="{{data.username}}" placeholder="Username" autocomplete=off required><br><br>
-            <input type="password" name="password" value="{{data.password}}" placeholder="Password" autocomplete=off required><br>
-            <button type="submit" name="signup" value="Sign up">Submit</button>
-        </form> <br>
-        <a href="/login">Already have an account? Log in</a>
-        
-        {{#errors}}
-        <div class="error">
-            {{msg}} <br>
-        </div>
-        {{/errors}}
+        <div>
+            <form action="/signup" method="post" class="signup-form">
+                <div class="form-group row">
+                    <div class="col-4" id="signup">
+                        <input class="form-control" type="text" name="firstname" value="{{data.firstname}}" placeholder="First Name" id="example-text-input"required autocomplete=off autofocus>
+                        <input class="form-control" type="text" name="lastname" value="{{data.lastname}}" placeholder="Last Name" id="example-text-input"required autocomplete=off autofocus>
+                        <input class="form-control" type="email" name="email" value="{{data.email}}" placeholder="Email" id="example-email-input" autocomplete=off required>
+                        <input class="form-control" type="text" name="username" value="{{data.username}}" placeholder="Username" id="example-text-input" autocomplete=off required>    
+                        <input class="form-control" type="password" name="password" value="{{data.password}}" placeholder="Password" id="example-password-input" autocomplete=off required>
+                    </div>
+                </div>
+                <button type="submit" name="signup" value="Sign up" class="btn btn-primary">Submit</button>
+            </form>
+            <a href="/login">Already have an account? Log in</a> {{#errors}}
+            <div class="error">
+                {{msg}} <br>
+            </div>
+            {{/errors}}
         </div>
     </div>
 </body>

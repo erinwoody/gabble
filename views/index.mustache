@@ -6,47 +6,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <div class="nav-div">
-            <p class="menuItem"><a href="/posts">Create a New Post</a></p>
-            <p class="menuItem"><a href="/myposts">View My Posts</a></p>
-        </div>
-        <div class="nav-div">
-            <a class="page-header" href="/">Gabble</a>
-        </div>
-        <div class="nav-div">
-            <p class="menuItem">Logged in as <span class="logged-in">{{user.username}}</span></p>
-            <p class="menuItem"><a href="/logout">Log Out</a></p>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Gabble</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts">Create New Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="myposts">View My Posts</a>
+                </li>
+            </ul>
+            <span class="navbar-text"></span>
+            <p>Logged in as <span class="logged-in">{{user.username}}</span></p>
+            <a href="/logout">Log Out</a>
         </div>
     </nav>
 
-    <div class="wrapper">
-        <div class="post-ctr">
-            {{#messages}}
-            <div class="message">
+
+    <ul class="list-group">
+        <header class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">All Posts</h5>
+            </div>
+        </header>
+        {{#messages}}
+        <li class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
                 <form action="/likes/{{id}}" method="post">
                     <div class="main-content">
-                        <span class="username">{{user.username}}: </span>
-                        <span class="middle">{{message}}</span>
+                        <p class="h3">{{user.username}}: </p>
+                        <p>{{message}}</p>
                     </div>
                     <div>
-                        <button class="like-btn" type="submit" value="Like"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>                        {{#likes.length}}
-                        <a class="total-likes" href="/likes/{{id}}">{{likes.length}} likes</a> {{/likes.length}} {{^likes.length}}
+                        <button class="like-btn" type="submit" value="Like"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                        {{#likes.length}}
+                        <a class="total-likes" href="/likes/{{id}}">{{likes.length}} likes</a> 
+                        {{/likes.length}} {{^likes.length}}
                         No likes yet. {{/likes.length}}
                     </div>
                 </form>
-                <span class="created-at"> {{createdAt}}</span>
-
+                <small class="text-muted"> {{createdAt}}</small>
             </div>
-            {{/messages}}
-        </div>
-    </div>
+        </li>
+        {{/messages}}
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

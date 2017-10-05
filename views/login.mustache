@@ -6,24 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
-     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <div class ="form">
-            <h1>Welcome to Gabble!</h1>
-            <form action="/login" method="post">
-                <label for="username"></label><br>
-                <input type="text" name="username" value="" placeholder="username" autocomplete=off autofocus><br>
-                <label for="password"></label><br>
-                <input type="password" name="password"  placeholder="password" autocomplete=off><br>
-
-                <button type="submit" value="Log in">Log In</button>
+    <div class="login-page">
+        <h1>Welcome to Gabble!</h1>
+        <div>
+            <form action="/login" method="post" class="login-form">
+                <div class="form-group col-3" id="form-group">
+                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input class="form-control" type="text" name="username" value="{{data.username}}" placeholder="Username" id="example-text-input"autocomplete=off required>
+                        </div>
+                    <label class="sr-only" for="inlineFormInput">Password</label>
+                        <input class="form-control" type="password" name="password" value="{{data.password}}" placeholder="Password" id="example-password-input"autocomplete=off required>
+                </div>
+                <button type="submit" name="login" class="btn btn-primary">Submit</button>
             </form>
-            <br>
-        <a href="/signup">Don't have an account? Sign up</a>
+            <a href="/signup">Don't have an account? Sign up</a>
         </div>
     </div>
 </body>
