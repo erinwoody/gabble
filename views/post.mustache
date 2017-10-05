@@ -18,11 +18,11 @@
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-            <a class="navbar-brand" href="#">Gabble</a>
+            <a class="navbar-brand" href="/">Gabble</a>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/posts">Create New Post</a>
@@ -31,16 +31,20 @@
                         <a class="nav-link" href="myposts">View My Posts</a>
                     </li>
                 </ul>
-                <span class="navbar-text"></span>
-                <p>Logged in as <span class="logged-in">{{user.username}}</span></p>
-                <a href="/logout">Log Out</a>
+                <span class="navbar-text">
+                Logged in as {{user.username}}
+                </span>
+                <a class="nav-link" href="/logout">Log Out</a>
             </div>
         </nav>
 
         <div class="wrapper">
+            <header class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Create New Post</h5>
+            </div>
+        </header>
             <div class="new-post-form">
-                <h1>Create a New Post</h1>
-                <br>
                 <form action="/posts" method="post">
                     <textarea class="new-post-text" name="newmessage" maxlength="140"></textarea>
                     <br>
