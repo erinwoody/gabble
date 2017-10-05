@@ -12,7 +12,7 @@ const loginRouter = require('./routes/loginRoutes');
 const logoutRouter = require('./routes/logoutRoutes');
 const postsRouter = require('./routes/postsRoutes');
 const likesRouter = require('./routes/likesRoutes');
-const mypostsRouter = require('./routes/mypostsRoutes');
+const mypostsRouter = require('./routes/myPostsRoutes');
 const app = express();
 
 app.engine("mustache", mustacheExpress());
